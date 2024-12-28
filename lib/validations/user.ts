@@ -5,3 +5,16 @@ export const userValidation = z.object({
     username:z.string().min(3).max(30),
     bio:z.string().min(3).max(1000),
 })
+export const threadValidation =  z.object({
+    thread:z.string().min(3 , {
+        message:"Thread must be at least 3 characters"
+    }).max(2000),
+    accountId:z.string()
+
+})
+export const commentValidation =  z.object({
+    thread:z.string().min(3 , {
+        message:"Comment must be at least 3 characters"
+    }).max(200),
+   
+})
