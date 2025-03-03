@@ -21,7 +21,7 @@ type:Date,
 default:Date.now
 },
 parentId:{
-    type:String
+    type:String 
 },
 children:[
     {
