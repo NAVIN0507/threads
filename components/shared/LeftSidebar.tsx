@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { SignOutButton, SignedIn, useAuth } from "@clerk/nextjs";
+import { SignOutButton, SignedIn, useAuth , useUser} from "@clerk/nextjs";
 
 import { sidebarLinks } from "@/constants";
 
@@ -12,6 +12,7 @@ const LeftSidebar = () => {
   const pathname = usePathname();
 
   const { userId } = useAuth();
+  const {user} = useUser();
 
   return (
     <section className='custom-scrollbar leftsidebar'>
@@ -53,7 +54,9 @@ const LeftSidebar = () => {
                 height={24}
               />
 
-              <p className='text-light-2 max-lg:hidden'>Logout</p>
+              <p className='text-light-2 max-lg:hidden'>Logout </p>
+              <br />
+              <p className="text-light-2 max-lg:hidden">{user?.fullName}</p>
             </div>
           </SignOutButton>
         </SignedIn>
